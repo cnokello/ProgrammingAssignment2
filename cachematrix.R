@@ -1,6 +1,6 @@
 ## This function creates a matrix
 ## It also exposes functions for setting and retrieving the matrix data
-## Lastly, it exposes function for accessing and setting the mean 
+## Lastly, it exposes function for accessing and setting the inverse 
 ## of the matrix
 makeCacheMatrix <- function(x = matrix()) {
         inv <- NULL
@@ -24,6 +24,10 @@ makeCacheMatrix <- function(x = matrix()) {
         list(set = set, get = get, setinv = setinv, getinv = getinv)
 }
 
+## This function calculates the inverse of the specified matrix
+## It first attempts to retrieve the matrix inverse from cache
+## If it doesn't find the inverse in the cache, it calculates 
+## then persists it to the cache for future retrieval
 cacheSolve <- function(x, ...) {
         
         ## Retrieve the matrix inverse from the cache
